@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { notification } from "antd";
 import { useState } from "react";
 
+//tạo các trường dữ liệu và validate
 const schema = z.object({
   time: z.string().min(1, "Vui lòng chọn thời gian"),
   quantity: z.number().min(1, "Số lượng phải > 0"),
@@ -18,14 +19,15 @@ type FormData = z.infer<typeof schema>;
 
 export default function Home() {
   const [notice, setNotice] = useState("");
+  //sử dụng thư viện react-hook-form để tạo form và validate
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    setValue,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
+    //khởi tạo giá trị mặc định cho các trường dữ liệu
     defaultValues: {
       time: "",
       quantity: 0,
@@ -36,6 +38,7 @@ export default function Home() {
   });
 
   const onSubmit = (data: FormData) => {
+    console.log(data);
     setNotice("Cập nhật thành công");
     reset();
   };
@@ -63,6 +66,7 @@ export default function Home() {
         </button>
       </div>
       <h1 className="text-2xl font-bold">Nhập giao dịch</h1>
+      {/* hiển thị thông báo thành công */}
       {notice && (
         <div className="p-3 text-green-700 bg-green-100 border border-green-300 rounded">
           {notice}
@@ -71,6 +75,7 @@ export default function Home() {
       <div className="border-2 border-gray-300 rounded-md p-2 flex flex-col gap-2 w-full">
         <span className="text-sm font-bold">Thời gian</span>
         <input type="datetime-local" {...register("time")} />
+        {/* hiển thị lỗi nếu có */}
         {errors.time && (
           <p className="text-red-500 text-sm">{errors.time.message}</p>
         )}
@@ -79,8 +84,10 @@ export default function Home() {
         <span className="text-sm font-bold">Số lượng</span>
         <input
           type="number"
+          //khởi tạo
           {...register("quantity", { valueAsNumber: true })}
         />
+        {/* hiển thị lỗi nếu có */}
         {errors.quantity && (
           <p className="text-red-500 text-sm">{errors.quantity.message}</p>
         )}
@@ -99,6 +106,7 @@ export default function Home() {
           <option value="08">08</option>
           <option value="09">09</option>
         </select>
+        {/* hiển thị lỗi nếu có */}
         {errors.pump && (
           <p className="text-red-500 text-sm">{errors.pump.message}</p>
         )}
@@ -109,6 +117,7 @@ export default function Home() {
           type="number"
           {...register("revenue", { valueAsNumber: true })}
         />
+        {/* hiển thị lỗi nếu có */}
         {errors.revenue && (
           <p className="text-red-500 text-sm">{errors.revenue.message}</p>
         )}
@@ -116,6 +125,7 @@ export default function Home() {
       <div className="border-2 border-gray-300 rounded-md p-2 flex flex-col gap-2 w-full">
         <span className="text-sm font-bold">Đơn giá</span>
         <input type="number" {...register("price", { valueAsNumber: true })} />
+        {/* hiển thị lỗi nếu có */}
         {errors.price && (
           <p className="text-red-500 text-sm">{errors.price.message}</p>
         )}
