@@ -6,8 +6,8 @@
 - Sử dụng thư viện React-hook-form và zod để tạo validate cho các trường dữ liệu
 - Cách bước thực hiện
 
-* Truy cập - đề các trường thông tin theo yêu cầu, theo đúng định dạng
-* Nhấn nút cập nhập để kiểm tra đúng định dạng chưa, nếu chưa sẽ hiện ra định dạng chưa đúng, sai như thế nào cập nhập lại, nếu đã đúng định dạng thì hiển thị thông báo thành công và reset lại form về giá trị mặc định
+-- Truy cập - điền các trường thông tin theo yêu cầu, theo đúng định dạng
+-- Nhấn nút cập nhập để kiểm tra đúng định dạng chưa, nếu chưa sẽ hiện ra định dạng chưa đúng, sai như thế nào cập nhập lại, nếu đã đúng định dạng thì hiển thị thông báo thành công và reset lại form về giá trị mặc định
 
 ## 2. Cấu trúc dự án
 

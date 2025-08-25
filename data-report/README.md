@@ -8,9 +8,9 @@
 - Tính và thực hiện hiển thị kết quả
 - Cách thực hiện:
 
-* Upload file excel chứa dữ liệu bán hàng
-* Chọn khung thời gian cần tính
-* Nhấn Tính Tổng và chờ kết quả
+-- Upload file excel chứa dữ liệu bán hàng
+-- Chọn khung thời gian cần tính
+-- Nhấn Tính Tổng và chờ kết quả
 
 ## 2. Cấu trúc dự án
 
